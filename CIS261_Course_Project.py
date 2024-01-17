@@ -68,7 +68,7 @@ if __name__ == '__main__':
         totalTax += incomeTax
         totalNetPay += netPay
     
-        PrintTotals(totalEmployees, totalHours, totalGrossPay, totalTax, totalNetPay)
+    PrintTotals(totalEmployees, totalHours, totalGrossPay, totalTax, totalNetPay)
     
     
     
