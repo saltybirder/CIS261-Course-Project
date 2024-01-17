@@ -17,5 +17,16 @@ def getPayRate():
     payRate = float(input('Enter rate of pay:     '))
     return payRate
 
-
+#Enter tax bracket and do the math 
+def getTaxRate():
+    taxRate = float(input('Enter tax rate:     '))
+    taxRate = taxRate / 100
+    return taxRate
     
+#calculate tax net pay
+def CalcTaxAndNetPay(hours, payRate,taxRate):
+    gPay = hours * payRate
+    incomeTax = gPay * taxRate
+    netPay = gPay - incomeTax
+    return gPay, incomeTax, netPay
+
