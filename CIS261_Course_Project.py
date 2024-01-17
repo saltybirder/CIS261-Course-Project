@@ -14,7 +14,7 @@ def getHoursWorked():
 
 #Enter and get rate of pay
 def getHourlyRate():
-    hourlyRate = float(input('Enter Hourly Rate: '))
+    hourlyRate = float(input('Enter Hourly Rate:     '))
     return hourlyRate
  
  
