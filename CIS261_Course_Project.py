@@ -30,3 +30,27 @@ def CalcTaxAndNetPay(hours, payRate,taxRate):
     netPay = gPay - incomeTax
     return gPay, incomeTax, netPay
 
+#Function that will display name, hours, pay rate, gross pay, income tax, net pay in a loop
+def printinfo(empName, hours, payRate, gPay, taxRate, incomeTax, netPay):
+    print(empName, f'{hours: , .2f}', f'{payRate: , .2f}', f'{gPay: , .2f}', f'{taxRate: , .1%}', f'{incomeTax: , .2f}', f'{netPay: , .2f}')
+    
+#This will print totals of all the information gathered
+def PrintTotals(totalEmployees, totalHours, totalGrossPay, totalTax, totalNetPay):
+    print(f'\nTotal numbers of employees: {totalEmployees}')
+    print(f'Total hours: {totalHours: , .2f}')
+    print(f'Total gross pay: {totalGrossPay: , .2f}')
+    print(f'Total tax: {totalTax: , 2f}')
+    print(f'Total net pay: {totalNetPay: , .2f}')
+    
+if __name__ == '__main__':
+    totalEmployees = 0
+    totalHours = 0.00
+    totalGrossPay = 0.00
+    totalTax = 0.00
+    totalNetPay = 0.00
+    
+    while True:
+        empName = getEmpName()
+        if (empName.upper() == "END"):
+    
+    
