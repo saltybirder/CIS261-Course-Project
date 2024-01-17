@@ -13,9 +13,9 @@ def getHoursWorked():
     return hours
 
 #Enter and get rate of pay
-def getPayRate():
-    payRate = float(input('Enter rate of pay:     '))
-    return payRate
+def getHourlyRate():
+ hourlyRate = float(input('Enter Hourly Rate: '))
+ return hourlyRate
 
 #Enter tax bracket and do the math 
 def getTaxRate():
@@ -24,15 +24,15 @@ def getTaxRate():
     return taxRate
     
 #calculate tax net pay
-def CalcTaxAndNetPay(hours, payRate,taxRate):
-    gPay = hours * payRate
+def CalcTaxAndNetPay(hours, hourlyRate, taxRate):
+    gPay = hours * hourlyRate
     incomeTax = gPay * taxRate
     netPay = gPay - incomeTax
     return gPay, incomeTax, netPay
 
 #Function that will display name, hours, pay rate, gross pay, income tax, net pay in a loop
-def printinfo(empName, hours, payRate, gPay, taxRate, incomeTax, netPay):
-    print(empName, f'{hours: , .2f}', f'{payRate: , .2f}', f'{gPay: , .2f}', f'{taxRate: , .1%}', f'{incomeTax: , .2f}', f'{netPay: , .2f}')
+def printinfo(empName, hours, hourlyRate, gPay, taxRate, incomeTax, netPay):
+    print(empName, f'{hours: , .2f}', f'{hourlyRate: , .2f}', f'{gPay: , .2f}', f'{taxRate: , .1%}', f'{incomeTax: , .2f}', f'{netPay: , .2f}')
     
 #This will print totals of all the information gathered
 def PrintTotals(totalEmployees, totalHours, totalGrossPay, totalTax, totalNetPay):
@@ -54,11 +54,11 @@ if __name__ == '__main__':
         if (empName.upper() == "END"):
             break
         hours = getHoursWorked()
-        payRate = getPayRate
+        hourlyRate = getHourlyRate
         taxRate = getTaxRate
-        gPay, incomeTax, netPay = CalcTaxAndNetPay(hours, payRate, taxRate)
+        gPay, incomeTax, netPay = CalcTaxAndNetPay(hours, hourlyRate, taxRate)
         
-    printinfo(empName, hours, payRate, gPay, taxRate, incomeTax, netPay)
+    printinfo(empName, hours, hourlyRate, gPay, taxRate, incomeTax, netPay)
 
     totalEmployees += 1
     totalHours += hours
