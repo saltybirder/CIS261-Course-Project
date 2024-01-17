@@ -14,8 +14,10 @@ def getHoursWorked():
 
 #Enter and get rate of pay
 def getHourlyRate():
- hourlyRate = float(input('Enter Hourly Rate: '))
- return hourlyRate
+    hourlyRate = float(input('Enter Hourly Rate: '))
+    return hourlyRate
+ 
+ 
 
 #Enter tax bracket and do the math 
 def getTaxRate():
@@ -32,15 +34,15 @@ def CalcTaxAndNetPay(hours, hourlyRate, taxRate):
 
 #Function that will display name, hours, pay rate, gross pay, income tax, net pay in a loop
 def printinfo(empName, hours, hourlyRate, gPay, taxRate, incomeTax, netPay):
-    print(empName, f'{hours: , .2f}', f'{hourlyRate: , .2f}', f'{gPay: , .2f}', f'{taxRate: , .1%}', f'{incomeTax: , .2f}', f'{netPay: , .2f}')
+    print(empName, f'{hours:,.2f}', f'{hourlyRate:,.2f}', f'{gPay:,.2f}', f'{taxRate:,.1%}', f'{incomeTax:,.2f}', f'{netPay:,.2f}')
     
 #This will print totals of all the information gathered
 def PrintTotals(totalEmployees, totalHours, totalGrossPay, totalTax, totalNetPay):
     print(f'\nTotal numbers of employees: {totalEmployees}')
-    print(f'Total hours: {totalHours: , .2f}')
-    print(f'Total gross pay: {totalGrossPay: , .2f}')
-    print(f'Total tax: {totalTax: , 2f}')
-    print(f'Total net pay: {totalNetPay: , .2f}')
+    print(f'Total hours: {totalHours:,.2f}')
+    print(f'Total gross pay: {totalGrossPay:,.2f}')
+    print(f'Total tax: {totalTax:,.2f}')
+    print(f'Total net pay: {totalNetPay:,.2f}')
     
 if __name__ == '__main__':
     totalEmployees = 0
@@ -54,19 +56,19 @@ if __name__ == '__main__':
         if (empName.upper() == "END"):
             break
         hours = getHoursWorked()
-        hourlyRate = getHourlyRate
-        taxRate = getTaxRate
+        hourlyRate = getHourlyRate()
+        taxRate = getTaxRate()
         gPay, incomeTax, netPay = CalcTaxAndNetPay(hours, hourlyRate, taxRate)
         
-    printinfo(empName, hours, hourlyRate, gPay, taxRate, incomeTax, netPay)
+        printinfo(empName, hours, hourlyRate, gPay, taxRate, incomeTax, netPay)
 
-    totalEmployees += 1
-    totalHours += hours
-    totalGrossPay += gPay
-    totalTax += incomeTax
-    totalNetPay += netPay
+        totalEmployees += 1
+        totalHours += hours
+        totalGrossPay += gPay
+        totalTax += incomeTax
+        totalNetPay += netPay
     
-    printTotals(totalEmployees, totalHours, totalGrossPay, totalTax, totalNetPay)
+        PrintTotals(totalEmployees, totalHours, totalGrossPay, totalTax, totalNetPay)
     
     
     
