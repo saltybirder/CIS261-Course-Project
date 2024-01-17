@@ -52,5 +52,21 @@ if __name__ == '__main__':
     while True:
         empName = getEmpName()
         if (empName.upper() == "END"):
+            break
+        hours = getHoursWorked()
+        payRate = getPayRate
+        taxRate = getTaxRate
+        gPay, incomeTax, netPay = CalcTaxAndNetPay(hours, payRate, taxRate)
+        
+    printinfo(empName, hours, payRate, gPay, taxRate, incomeTax, netPay)
+
+    totalEmployees += 1
+    totalHours += hours
+    totalGrossPay += gPay
+    totalTax += incomeTax
+    totalNetPay += netPay
+    
+    printTotals(totalEmployees, totalHours, totalGrossPay, totalTax, totalNetPay)
+    
     
     
