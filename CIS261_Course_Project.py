@@ -2,6 +2,13 @@
 #CIS261
 #Week 2 CIS261 Course Project- Payrole
 
+
+
+def getDatesWorked():
+    fromDate = input('Please enter start date in the following format MM/DD/YYYY:   ')
+    endDate = input('Please enter the end date in the following format MM/DD/YYYY:   ')
+    return fromDate,  endDate
+
 #This function will return and get the employee name
 def getEmpName():
     empName = input('Enter employee name:    ')
