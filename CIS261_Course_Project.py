@@ -54,7 +54,7 @@ def printinfo(empDetailList):
         taxRate = empList[5]
         
         grosspay, incometax, netpay = CalcTaxAndNetPay(hours, hourlyRate, taxRate)
-        print (fromDate, endDate, empName, f'{hours:,.2f}', f'{hourlyRate:,.2f}', f'{grosspay:,.2f}', f'{taxRate:,.1%}', f'{incometax:,.2f}', f'{netpay:,.2f}')
+        print(fromDate, endDate, empName, f'{hours:,.2f}', f'{hourlyRate:,.2f}', f'{grosspay:,.2f}', f'{taxRate:,.1%}', f'{incometax:,.2f}', f'{netpay:,.2f}')
         
         totalEmployees += 1
         totalHours += hours
@@ -99,10 +99,7 @@ if __name__ == '__main__':
             
                
     printinfo(empDetailList)
-
-     
-    
-    printTotals(emptotals)
+    printTotals(empTotals)
     
     
     
