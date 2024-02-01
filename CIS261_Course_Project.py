@@ -48,7 +48,7 @@ def printinfo(empDetailList):
     for empList in empDetailList:
         fromDate = empList[0]
         endDate = empList[1]
-        empName = emplist[2]
+        empName = empList[2]
         hours = empList[3]
         hourlyRate = empList[4]
         taxRate = empList[5]
@@ -58,7 +58,7 @@ def printinfo(empDetailList):
         
         totalEmployees += 1
         totalHours += hours
-        totalGrossPay += gPay
+        totalGrossPay += grossPay
         totalTax += incomeTax
         totalNetPay += netPay
 
@@ -70,11 +70,11 @@ def printinfo(empDetailList):
     
 #This will print totals of all the information gathered
 def printTotals(empTotals):
-    print(f'Total numbers of employees: {empTotals['totEmp']}')
-    print(f'Total hours of employees: {empTotals['totHours']}')
-    print(f'Total gross pay of employees: {empTotals['totGross']}')
-    print(f'Total tax of employees: {empTotals['totTax']}')
-    print(f'Total net pay of emplyess: {empTotals['totNet']}')
+    print(f'Total numbers of employees: {empTotals["totEmp"]}')
+    print(f'Total hours of employees: {empTotals["totHours"]}')
+    print(f'Total gross pay of employees: {empTotals["totGross"]}')
+    print(f'Total tax of employees: {empTotals["totTax"]}')
+    print(f'Total net pay of emplyess: {empTotals["totNet"]}')
     
 if __name__ == '__main__':
     empDetailList = []
@@ -82,7 +82,7 @@ if __name__ == '__main__':
     
     while True:
         empName = getEmpName()
-        if (empName.upper() == "END"):
+        if (empName.lower() == "end"):
             break
         fromDate, endDate = getDatesWorked()
         hours = getHoursWorked()
