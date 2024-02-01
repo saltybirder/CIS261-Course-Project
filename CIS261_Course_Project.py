@@ -102,7 +102,7 @@ if __name__ == '__main__':
 
      
     
-    PrintTotals(emptotals)
+    printTotals(emptotals)
     
     
     
