@@ -25,7 +25,6 @@ def getHourlyRate():
     return hourlyRate
  
  
-
 #Enter tax bracket and do the math 
 def getTaxRate():
     taxRate = float(input('Enter tax rate:     '))
@@ -49,7 +48,7 @@ def printinfo(empDetailList):
     for empList in empDetailList:
         fromDate = empList[0]
         endDate = empList[1]
-        empName = emplist [2]
+        empName = emplist[2]
         hours = empList[3]
         hourlyRate = empList[4]
         taxRate = empList[5]
@@ -103,7 +102,7 @@ if __name__ == '__main__':
 
      
     
-    PrintTotals(temptotals)
+    PrintTotals(emptotals)
     
     
     
