@@ -40,42 +40,70 @@ def CalcTaxAndNetPay(hours, hourlyRate, taxRate):
     return gPay, incomeTax, netPay
 
 #Function that will display name, hours, pay rate, gross pay, income tax, net pay in a loop
-def printinfo(empName, hours, hourlyRate, gPay, taxRate, incomeTax, netPay):
-    print(empName, f'{hours:,.2f}', f'{hourlyRate:,.2f}', f'{gPay:,.2f}', f'{taxRate:,.1%}', f'{incomeTax:,.2f}', f'{netPay:,.2f}')
-    
-#This will print totals of all the information gathered
-def PrintTotals(totalEmployees, totalHours, totalGrossPay, totalTax, totalNetPay):
-    print(f'\nTotal numbers of employees: {totalEmployees}')
-    print(f'Total hours: {totalHours:,.2f}')
-    print(f'Total gross pay: {totalGrossPay:,.2f}')
-    print(f'Total tax: {totalTax:,.2f}')
-    print(f'Total net pay: {totalNetPay:,.2f}')
-    
-if __name__ == '__main__':
+def printinfo(empDetailList):
     totalEmployees = 0
     totalHours = 0.00
     totalGrossPay = 0.00
     totalTax = 0.00
     totalNetPay = 0.00
-    
-    while True:
-        empName = getEmpName()
-        if (empName.upper() == "END"):
-            break
-        hours = getHoursWorked()
-        hourlyRate = getHourlyRate()
-        taxRate = getTaxRate()
-        gPay, incomeTax, netPay = CalcTaxAndNetPay(hours, hourlyRate, taxRate)
+    for empList in empDetailList:
+        fromDate = empList[0]
+        endDate = empList[1]
+        empName = emplist [2]
+        hours = empList[3]
+        hourlyRate = empList[4]
+        taxRate = empList[5]
         
-        printinfo(empName, hours, hourlyRate, gPay, taxRate, incomeTax, netPay)
-
+        grosspay, incometax, netpay = CalcTaxAndNetPay(hours, hourlyRate, taxRate)
+        print (fromDate, endDate, empName, f'{hours:,.2f}', f'{hourlyRate:,.2f}', f'{grosspay:,.2f}', f'{taxRate:,.1%}', f'{incometax:,.2f}', f'{netpay:,.2f}')
+        
         totalEmployees += 1
         totalHours += hours
         totalGrossPay += gPay
         totalTax += incomeTax
         totalNetPay += netPay
+
+        empTotals["totEmp"] = totalEmployees
+        empTotals["totHours"] = totalHours
+        empTotals["totGross"] = totalGrossPay
+        empTotals["totTax"] = totalTax
+        empTotals["totNet"] = totalNetPay
     
-    PrintTotals(totalEmployees, totalHours, totalGrossPay, totalTax, totalNetPay)
+#This will print totals of all the information gathered
+def printTotals(empTotals):
+    print(f'Total numbers of employees: {empTotals['totEmp']}')
+    print(f'Total hours of employees: {empTotals['totHours']}')
+    print(f'Total gross pay of employees: {empTotals['totGross']}')
+    print(f'Total tax of employees: {empTotals['totTax']}')
+    print(f'Total net pay of emplyess: {empTotals['totNet']}')
+    
+if __name__ == '__main__':
+    empDetailList = []
+    empTotals = {}
+    
+    while True:
+        empName = getEmpName()
+        if (empName.upper() == "END"):
+            break
+        fromDate, endDate = getDatesWorked()
+        hours = getHoursWorked()
+        hourlyRate = getHourlyRate()
+        taxRate = getTaxRate()
+        empDetail = []
+        empDetail.insert(0, fromDate)
+        empDetail.insert(1, endDate)
+        empDetail.insert(2, empName)
+        empDetail.insert(3, hours)
+        empDetail.insert(4, hourlyRate)
+        empDetail.insert(5, taxRate)
+        empDetailList.append(empDetail)
+            
+               
+    printinfo(empDetailList)
+
+     
+    
+    PrintTotals(temptotals)
     
     
     
