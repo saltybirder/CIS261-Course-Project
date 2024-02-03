@@ -39,7 +39,7 @@ def CalcTaxAndNetPay(hours, hourlyRate, taxRate):
     return gPay, incomeTax, netPay
 
 #Function that will display name, hours, pay rate, gross pay, income tax, net pay in a loop
-def printinfo(empDetailList):
+def printInfo(empDetailList):
     totalEmployees = 0
     totalHours = 0.00
     totalGrossPay = 0.00
@@ -58,9 +58,9 @@ def printinfo(empDetailList):
         
         totalEmployees += 1
         totalHours += hours
-        totalGrossPay += grossPay
-        totalTax += incomeTax
-        totalNetPay += netPay
+        totalGrossPay += grosspay
+        totalTax += incometax
+        totalNetPay += netpay
 
         empTotals["totEmp"] = totalEmployees
         empTotals["totHours"] = totalHours
@@ -98,7 +98,7 @@ if __name__ == '__main__':
         empDetailList.append(empDetail)
             
                
-    printinfo(empDetailList)
+    printInfo(empDetailList)
     printTotals(empTotals)
     
     
