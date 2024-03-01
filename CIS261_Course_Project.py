@@ -2,8 +2,77 @@
 #CIS261
 #Week 7 CIS261 Course Project- Payrole Phase III
 
+#Adding in lines to create users and loggin information
+from datetime import datetime
 
+def CreateUsers():
+    print('##### Create users, passwords, and roles #####')
+    UserFile = open("Users.txt", "a+")
+    while True:
+        username = GetUserName()
+        if (username.upper() == "END"):
+            break
+        userpwd = GetUserPassword()
+        userrole = GetUserRole()
+        
+        UserDetail = username + "|" + userpwd + "|" + userrole + "\n"
+        UserFile.write(UserDetail)
+        
+    UserFile.close()
+    printuserinfo()
+    
+def GetUserName():
+    username = input("Enter user name or 'End' to quit: ")
+    return username
 
+def GetUserPassword():
+    pwd = input("Enter password: ")
+    return pwd
+
+def GetUserRole():
+    userrole = input("Enter role (Admin or User): ")
+    while True:
+        if (userrole.upper() == "ADMIN" or userrole.upper() == "USER"):
+            return userrole
+        else:
+            userrole = input("Enter role (Admin or User): ")
+            
+def printuserinfo():
+    Userfile = open("User.txt", "r")
+    while True:
+        UserDetail = UserFile.readline()
+        if not UserDetail:
+            break
+        UserDetail = UserDetail.replace("\n", "")
+        UserList = UserDetail.split ("|")
+        username = Userlist[0]
+        userpassword = UserList [1]
+        userrole = UserList [2]
+        print("User Name: ", username, " Password: ", userpassword, " Role: ", userrole)
+        
+#Login Defined
+
+def Login():
+    UserFile = open("User.txt", "r")
+    UserList = []
+    UserName = input("Enter User Name: ")
+    UserPwd = input("Enter Password: ")
+    UserRole = "None"
+    while True:
+        UserDetail = UserFile.realine()
+        if not UserDetail:
+            return UserRole, UserName, UserPwd
+        UserDetail = UserDetail.replace("\n", "")
+        
+        UserList == UserDetail,split("|")
+        if UserName == UserList [0] and UserPwd == UserList [1]:
+            UserRole = UserList [2] # user is valid, return role 
+            return UserRole, UserName
+    return UserRole, UserName
+            
+        
+    
+    
 def GetDatesWorked():
     fromdate = input("Please enter start date in the following format MM/DD/YYYY:   ")
     todate = input("Please enter the end date in the following format MM/DD/YYYY:   ")
@@ -43,7 +112,7 @@ def printinfo(EmpDetailList):
      TotHours = 0.00
      TotGrossPay = 0.00
      TotTax = 0.00
-     TotNetPay = 0.00
+     TotNetPay = 0.00 #made it here with my work on Thursday
      for EmpList in EmpDetailList:
          fromdate = EmpList[0]
          todate = EmpList[1]
