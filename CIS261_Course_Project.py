@@ -3,6 +3,7 @@
 #Week 7 CIS261 Course Project- Payrole Phase III
 
 #Adding in lines to create users and loggin information
+
 from datetime import datetime
 
 def CreateUsers():
@@ -70,20 +71,17 @@ def Login():
             return UserRole, UserName
     return UserRole, UserName
             
-        
-    
+#This function will return and get the employee name
+def GetEmpName():
+    empname = input("Enter employee name:    ")
+    return empname    
     
 def GetDatesWorked():
     fromdate = input("Please enter start date in the following format MM/DD/YYYY:   ")
     todate = input("Please enter the end date in the following format MM/DD/YYYY:   ")
     return fromdate, todate
 
-#This function will return and get the employee name
-def GetEmpName():
-    empname = input("Enter employee name:    ")
-    return empname
 
-#Enter and get hours
 def GetHoursWorked():
     hours = float(input("Enter hours worked:     "))
     return hours
