@@ -47,7 +47,7 @@ def printuserinfo():
             break
         UserDetail = UserDetail.replace("\n", "")
         UserList = UserDetail.split ("|")
-        username = Userlist[0]
+        username = UserList[0]
         userpassword = UserList [1]
         userrole = UserList [2]
         print("User Name: ", username, " Password: ", userpassword, " Role: ", userrole)
@@ -55,7 +55,7 @@ def printuserinfo():
 #Login Defined
 
 def Login():
-    UserFile = open("User.txt", "r")
+    UserFile = open("Users.txt", "r")
     UserList = []
     UserName = input("Enter User Name: ")
     UserPwd = input("Enter Password: ")
@@ -132,7 +132,7 @@ def printinfo(DetailsPrinted):
              break
          EmpDetail = EmpDetail.replace("\n", "")
          EmpList = EmpDetail.split("|")
-         fromdate = EmpDetail[0]
+         fromdate = EmpList[0]
          if (str(rundate).upper() != "ALL"):
              checkdate = datetime.strptime(fromdate, "%m/%d/%Y")
              if (checkdate < rundate):

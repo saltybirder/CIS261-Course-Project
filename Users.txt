@@ -1,5 +1,2 @@
-John B|password|User
-Jimmy S|password|User
-John D|password|user
-jimmy|a;sdjf|user
-James|password|admin
+James|pass|admin
+James|pass|admin
