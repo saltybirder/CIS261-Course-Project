@@ -78,8 +78,8 @@ def GetEmpName():
     return empname    
     
 def GetDatesWorked():
-    fromdate = input("Please enter start date in the following format MM/DD/YYYY:   ")
-    todate = input("Please enter the end date in the following format MM/DD/YYYY:   ")
+    fromdate = input("Please enter start date in the following format (MM/DD/YYYY):   ")
+    todate = input("Please enter the end date in the following format (MM/DD/YYYY):   ")
     return fromdate, todate
 
 
@@ -116,7 +116,7 @@ def printinfo(DetailsPrinted):
      EmpFile = open("Employees.txt", "r")
      while True:
          rundate = input("Enter start date for report (MM/DD/YYYY) or All for all data in file: ")
-         if (rundate.upper() != "All"):
+         if (rundate.upper() == "All"):
              break
          try:
              rundate = datetime.strptime(rundate, "%m/%d/%Y")
@@ -133,7 +133,7 @@ def printinfo(DetailsPrinted):
          EmpDetail = EmpDetail.replace("\n", "")
          EmpList = EmpDetail.split("|")
          fromdate = EmpList[0]
-         if (str(rundate).upper() == "ALL"):
+         if (str(rundate).upper() != "ALL"):
              checkdate = datetime.strptime(fromdate, "%m/%d/%Y")
              if (checkdate < rundate):
                  continue
