@@ -61,12 +61,12 @@ def Login():
     UserPwd = input("Enter Password: ")
     UserRole = "None"
     while True:
-        UserDetail = UserFile.realine()
+        UserDetail = UserFile.readline()
         if not UserDetail:
             return UserRole, UserName, UserPwd
         UserDetail = UserDetail.replace("\n", "")
         
-        UserList == UserDetail.split("|")
+        UserList = UserDetail.split("|")
         if UserName == UserList[0] and UserPwd == UserList [1]:
             UserRole = UserList[2] 
             return UserRole, UserName
@@ -95,8 +95,7 @@ def GetHourlyRate():
  
 #Enter tax bracket and do the math 
 def GetTaxRate():
-    taxrate = float(input("Enter tax rate:     ")) 
-    #taxrate = taxrate / 100
+    taxrate = float(input("Enter tax rate: ")) 
     return taxrate
     
 #calculate tax net pay
@@ -167,7 +166,7 @@ def PrintTotals(EmpTotals):
      print(f"Total Number of Employees: {EmpTotals['TotEmp']}")
      print(f"Total Hours Worked: {EmpTotals['TotHrs']}")
      print(f"Total Gross Pay: {EmpTotals['TotGrossPay']:,.2f}")
-     print(f"Total Income Tax: {EmpTotals['TotTax']:,.1%}")
+     print(f"Total Income Tax: {EmpTotals['TotTax']:,.2f}")
      print(f"Total Net Pay: {EmpTotals['TotNetPay']:,.2f}")   
      
 
@@ -183,7 +182,7 @@ if __name__ == "__main__":
         
     else:
         if (UserRole.upper() == "ADMIN"):
-            EmpFile = open("Empoyees,txt", "a+")
+            EmpFile = open("Employees.txt", "a+")
             while True:
                 empname = GetEmpName()
                 if (empname.upper() == "END"):
@@ -192,10 +191,10 @@ if __name__ == "__main__":
                 hours = GetHoursWorked()
                 hourlyrate = GetHourlyRate()
                 taxrate = GetTaxRate()
-                EmpDetails = fromdate + "|" + todate + "|" + empname + "|" + str(hours) + "|" + str(hourlyrate) + "|" + str(taxrate) + "\n"
+                EmpDetail = fromdate + "|" + todate + "|" + empname + "|" + str(hours) + "|" + str(hourlyrate) + "|" + str(taxrate) + "\n"
                 EmpFile.write(EmpDetail)
             
-            Empfile.close()
+            EmpFile.close()
         printinfo(DetailsPrinted)
                 
     
