@@ -1,1 +1,2 @@
-jay|jay1|admin
+admin|admin|admin
+user|user|user

@@ -96,6 +96,7 @@ def GetHourlyRate():
 #Enter tax bracket and do the math 
 def GetTaxRate():
     taxrate = float(input("Enter tax rate: ")) 
+    taxrate = taxrate / 100
     return taxrate
     
 #calculate tax net pay
@@ -115,7 +116,7 @@ def printinfo(DetailsPrinted):
      EmpFile = open("Employees.txt", "r")
      while True:
          rundate = input("Enter start date for report (MM/DD/YYYY) or All for all data in file: ")
-         if (rundate.upper() == "All"):
+         if (rundate.upper() != "All"):
              break
          try:
              rundate = datetime.strptime(rundate, "%m/%d/%Y")
@@ -132,7 +133,7 @@ def printinfo(DetailsPrinted):
          EmpDetail = EmpDetail.replace("\n", "")
          EmpList = EmpDetail.split("|")
          fromdate = EmpList[0]
-         if (str(rundate).upper() != "ALL"):
+         if (str(rundate).upper() == "ALL"):
              checkdate = datetime.strptime(fromdate, "%m/%d/%Y")
              if (checkdate < rundate):
                  continue
